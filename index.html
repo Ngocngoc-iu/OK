@@ -1,14 +1,13 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hoàng Bích Ngọc Portfolio</title>
+<title>Portfolio - Tuyết Anh</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -16,337 +15,316 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Quicksand',sans-serif;
+font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
 }
 
 body{
-
-background:linear-gradient(
--45deg,
-#ffd6e7,
-#ccffcc,
-#ffe6f2,
-#d6ffd6
-);
-
-background-size:400% 400%;
-animation:bg 15s infinite;
-
 color:#333;
-
+overflow-x:hidden;
 }
 
-@keyframes bg{
+/* gradient animated background */
 
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(-45deg,#b7f7c1,#ffd1e8,#d0ffe0,#ffc0e3);
+background-size:400% 400%;
+animation:bgmove 12s ease infinite;
+z-index:-2;
+}
 
+@keyframes bgmove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* floating sakura petals */
+
+.petal{
+position:fixed;
+top:-50px;
+width:15px;
+height:15px;
+background:pink;
+border-radius:50% 50% 50% 0;
+opacity:0.7;
+transform:rotate(45deg);
+animation:fall linear infinite;
+z-index:-1;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px) rotate(0deg);
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+}
 }
 
 /* navbar */
 
 nav{
-
 position:fixed;
-top:20px;
-left:50%;
-transform:translateX(-50%);
-
-padding:12px 30px;
-
-border-radius:30px;
-
+width:100%;
+background:rgba(255,255,255,0.4);
+backdrop-filter:blur(10px);
 display:flex;
-gap:35px;
-
-background:rgba(255,255,255,0.35);
-backdrop-filter:blur(15px);
-
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
-
-z-index:1000;
-
+justify-content:center;
+gap:30px;
+padding:15px;
+z-index:10;
 }
 
 nav a{
-
 text-decoration:none;
-font-weight:600;
-color:#444;
-
+color:#333;
+font-weight:500;
 }
 
-/* hero */
+/* sections */
 
-.hero{
+section{
+padding:70px 10%;
+}
 
-height:100vh;
+/* card glassmorphism */
 
+.card{
+background:rgba(255,255,255,0.45);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:25px;
+margin-bottom:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card p{
+line-height:1.6;
+margin-top:8px;
+}
+
+/* flip card */
+
+.flip-card{
+perspective:1000px;
+margin-bottom:25px;
+}
+
+.flip-inner{
+position:relative;
+width:100%;
+height:180px;
+transition:transform 0.8s;
+transform-style:preserve-3d;
+}
+
+.flip-card:hover .flip-inner{
+transform:rotateY(180deg);
+}
+
+.flip-front,
+.flip-back{
+position:absolute;
+width:100%;
+height:100%;
+backface-visibility:hidden;
+background:rgba(255,255,255,0.45);
+backdrop-filter:blur(15px);
+border-radius:20px;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-
-text-align:center;
-
 }
 
-.avatar{
-
-width:180px;
-height:180px;
-
-border-radius:50%;
-border:5px solid white;
-
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-
-margin-bottom:20px;
-
+.flip-back{
+transform:rotateY(180deg);
 }
 
-/* section */
+/* timeline */
 
-section{
-
-padding:110px 15%;
-
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-
+.timeline{
+border-left:3px solid #7edb7e;
+padding-left:20px;
 }
 
-section.show{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-h2{
-
-text-align:center;
-margin-bottom:35px;
-
-}
-
-/* glass card */
-
-.card{
-
-background:rgba(255,255,255,0.45);
-
-backdrop-filter:blur(15px);
-
-border-radius:20px;
-
-padding:30px;
-
-box-shadow:0 10px 25px rgba(0,0,0,0.12);
-
+.timeline-item{
 margin-bottom:25px;
-
-transition:0.4s;
-
+position:relative;
 }
 
-.card:hover{
-
-transform:translateY(-10px) scale(1.02);
-
+.timeline-item::before{
+content:"";
+width:12px;
+height:12px;
+background:#ff9ecf;
+border-radius:50%;
+position:absolute;
+left:-27px;
+top:6px;
 }
 
 /* skills */
 
 .skill{
-
-margin:20px 0;
-
-}
-
-.bar{
-
-height:12px;
-
-background:#eee;
-
-border-radius:20px;
-
-overflow:hidden;
-
+margin-bottom:20px;
 }
 
 .progress{
-
-height:100%;
-
-width:0;
-
-background:linear-gradient(90deg,#ff9ecf,#7edb7e);
-
+background:#eee;
 border-radius:20px;
+overflow:hidden;
+}
 
+.progress div{
+height:10px;
+background:linear-gradient(90deg,#7edb7e,#ff9ecf);
 }
 
 /* gallery */
 
 .gallery{
-
 display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-gap:25px;
-
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
 }
 
 .gallery img{
-
 width:100%;
-
 border-radius:15px;
-
-transition:0.5s;
-
 }
 
-.gallery img:hover{
+/* cursor glow */
 
-transform:scale(1.08);
-
-}
-
-/* cursor sparkle */
-
-.sparkle{
-
+.cursor{
 position:fixed;
-
-width:6px;
-height:6px;
-
-background:white;
-
+width:20px;
+height:20px;
 border-radius:50%;
-
+background:rgba(255,255,255,0.8);
 pointer-events:none;
-
-animation:spark 1s linear forwards;
-
-}
-
-@keyframes spark{
-
-to{
-
-transform:translateY(-25px);
-opacity:0;
-
-}
-
-}
-
-footer{
-
-text-align:center;
-padding:40px;
-
+mix-blend-mode:difference;
+transform:translate(-50%,-50%);
+transition:transform 0.1s linear;
+z-index:999;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<nav>
+<div class="cursor"></div>
 
+<nav>
 <a href="#about">About</a>
 <a href="#education">Education</a>
 <a href="#experience">Experience</a>
 <a href="#skills">Skills</a>
+<a href="#hobby">Hobby</a>
 <a href="#gallery">Gallery</a>
-
 </nav>
 
-<div class="hero">
+<section id="about">
 
-<img src="avatar.jpg" class="avatar">
+<h2>🌸 About Me</h2>
 
-<h1>Hoàng Bích Ngọc</h1>
+<div class="card">
 
-<p>Gia Sư Tiếng Trung Online</p>
+<p class="typing"></p>
 
-<p>
-📧 hoangbngoc1406@gmail.com  
-📞 0814919688  
-📍 Đại học Ngoại thương
-</p>
+<p>Mình thích học ngôn ngữ và giỏi nhất là tính tò mò, ham học hỏi và luôn cố gắng hoàn thiện bản thân.</p>
 
 </div>
+
+</section>
 
 <section id="education">
 
-<h2>🎓 Học Vấn</h2>
+<h2>🎓 Education</h2>
 
-<div class="card">
+<div class="flip-card">
+<div class="flip-inner">
 
-<b>THPT chuyên Nguyễn Tất Thành</b>
-
-<p>Chuyên tiếng Trung (2021–2024)</p>
-
-<ul>
-
-<li>Top 1 lớp trong 3 năm</li>
-<li>6 kỳ nhận học bổng</li>
-
-</ul>
-
-</div>
-
-<div class="card">
-
+<div class="flip-front">
 <b>Đại học Ngoại thương</b>
+<p>Kế toán Kiểm toán ACCA</p>
+</div>
 
-<p>Kế toán Kiểm toán ACCA (2024 – hiện tại)</p>
+<div class="flip-back">
+<p>2024 – hiện tại</p>
+<p>Yêu thích học ngoại ngữ và nghiên cứu</p>
+</div>
 
 </div>
+</div>
+
+<img src="study.jpg" style="width:100%;border-radius:15px">
 
 </section>
 
 <section id="experience">
 
-<h2>💼 Kinh nghiệm</h2>
+<h2>💼 Experience</h2>
 
-<div class="card">
+<div class="timeline">
 
-<b>Đội tuyển HSG Quốc Gia Yên Bái</b>
+<div class="timeline-item">
+<b>2024 - nay</b>
+<p>Gia sư tiếng Trung Online</p>
+</div>
 
-<p>Trợ giảng (8/2024 – 9/2024)</p>
-
-<ul>
-
-<li>Hỗ trợ giảng dạy</li>
-<li>Soạn giáo trình</li>
-<li>Chấm bài</li>
-
-</ul>
+<div class="timeline-item">
+<b>2024</b>
+<p>Trợ giảng đội tuyển HSG Quốc Gia</p>
+</div>
 
 </div>
 
+<img src="workspace.jpg" style="width:100%;border-radius:15px;margin-top:20px">
+
+</section>
+
+<section id="skills">
+
+<h2>🌿 Skills</h2>
+
+<div class="skill">
+<p>Chinese</p>
+<div class="progress"><div style="width:90%"></div></div>
+</div>
+
+<div class="skill">
+<p>English</p>
+<div class="progress"><div style="width:80%"></div></div>
+</div>
+
+<div class="skill">
+<p>Teaching</p>
+<div class="progress"><div style="width:85%"></div></div>
+</div>
+
+</section>
+
+<section id="achievement">
+
+<h2>🏆 Thành tích</h2>
+
 <div class="card">
-
-<b>Gia sư tiếng Trung Online</b>
-
-<p>9/2024 – nay</p>
 
 <ul>
 
-<li>Dạy theo giáo trình HSK</li>
-<li>Luyện đề HSK & HSKK</li>
+<li>🏆 Giải Nhất Học sinh giỏi tỉnh môn Tiếng Trung</li>
+<li>🎓 HSK 5 & HSKK cao cấp</li>
+<li>🔬 Giải Khuyến Khích cuộc thi Sinh viên NCKH cấp khoa</li>
 
 </ul>
 
@@ -354,31 +332,15 @@ padding:40px;
 
 </section>
 
-<section id="skills">
+<section id="hobby">
 
-<h2>🌿 Kỹ năng</h2>
+<h2>🎨 Sở thích</h2>
 
-<div class="skill">
+<div class="card">
 
-<p>Tin học văn phòng</p>
+<p>Ngoài việc học tập, mình thích đọc sách và khám phá ngôn ngữ mới.</p>
 
-<div class="bar">
-
-<div class="progress" data-width="85%"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<p>Tiếng Trung</p>
-
-<div class="bar">
-
-<div class="progress" data-width="90%"></div>
-
-</div>
+<img src="hobby.jpg" style="width:100%;border-radius:15px;margin-top:15px">
 
 </div>
 
@@ -386,90 +348,66 @@ padding:40px;
 
 <section id="gallery">
 
-<h2>🌸 Gallery</h2>
+<h2>🌸 Moments</h2>
 
 <div class="gallery">
 
 <img src="study.jpg">
-<img src="hobby.jpg">
 <img src="workspace.jpg">
+<img src="hobby.jpg">
 
 </div>
 
 </section>
 
-<footer>
-
-© 2026 Hoàng Bích Ngọc
-
-</footer>
-
 <script>
 
-/* sparkle cursor */
+/* typing effect */
 
-document.addEventListener("mousemove",function(e){
+const text="Gia Sư Tiếng Trung Online"
+let i=0
 
-let s=document.createElement("div")
+function typing(){
+if(i<text.length){
+document.querySelector(".typing").innerHTML+=text.charAt(i)
+i++
+setTimeout(typing,70)
+}
+}
+typing()
 
-s.className="sparkle"
+/* cursor glow */
 
-s.style.left=e.clientX+"px"
-s.style.top=e.clientY+"px"
+const cursor=document.querySelector(".cursor")
 
-document.body.appendChild(s)
-
-setTimeout(()=>{
-
-s.remove()
-
-},800)
-
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px"
+cursor.style.top=e.clientY+"px"
 })
 
-/* scroll animation */
+/* sakura petals */
 
-let sections=document.querySelectorAll("section")
+function createPetal(){
 
-window.addEventListener("scroll",()=>{
+const petal=document.createElement("div")
+petal.classList.add("petal")
 
-sections.forEach(sec=>{
+petal.style.left=Math.random()*100+"vw"
 
-let top=window.scrollY
-let offset=sec.offsetTop-400
+petal.style.animationDuration=5+Math.random()*5+"s"
 
-if(top>offset){
+petal.style.opacity=Math.random()
 
-sec.classList.add("show")
+document.body.appendChild(petal)
+
+setTimeout(()=>petal.remove(),10000)
 
 }
 
-})
-
-})
-
-/* skills animation */
-
-let bars=document.querySelectorAll(".progress")
-
-window.addEventListener("scroll",()=>{
-
-bars.forEach(bar=>{
-
-let offset=bar.parentElement.parentElement.offsetTop-500
-
-if(window.scrollY>offset){
-
-bar.style.width=bar.dataset.width
-
-}
-
-})
-
-})
+setInterval(createPetal,300)
 
 </script>
 
 </body>
-
 </html>
+```
