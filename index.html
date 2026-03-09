@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hoàng Bích Ngọc Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Quicksand',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+
+background:linear-gradient(
+-45deg,
+#ffd6e7,
+#ccffcc,
+#ffe6f2,
+#d6ffd6
+);
+
+background-size:400% 400%;
+animation:bg 15s infinite;
+
+color:#333;
+
+}
+
+@keyframes bg{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+/* navbar */
+
+nav{
+
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+
+padding:12px 30px;
+
+border-radius:30px;
+
+display:flex;
+gap:35px;
+
+background:rgba(255,255,255,0.35);
+backdrop-filter:blur(15px);
+
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+
+z-index:1000;
+
+}
+
+nav a{
+
+text-decoration:none;
+font-weight:600;
+color:#444;
+
+}
+
+/* hero */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+}
+
+.avatar{
+
+width:180px;
+height:180px;
+
+border-radius:50%;
+border:5px solid white;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+margin-bottom:20px;
+
+}
+
+/* section */
+
+section{
+
+padding:110px 15%;
+
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+
+}
+
+section.show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+h2{
+
+text-align:center;
+margin-bottom:35px;
+
+}
+
+/* glass card */
+
+.card{
+
+background:rgba(255,255,255,0.45);
+
+backdrop-filter:blur(15px);
+
+border-radius:20px;
+
+padding:30px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.12);
+
+margin-bottom:25px;
+
+transition:0.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px) scale(1.02);
+
+}
+
+/* skills */
+
+.skill{
+
+margin:20px 0;
+
+}
+
+.bar{
+
+height:12px;
+
+background:#eee;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+.progress{
+
+height:100%;
+
+width:0;
+
+background:linear-gradient(90deg,#ff9ecf,#7edb7e);
+
+border-radius:20px;
+
+}
+
+/* gallery */
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
+}
+
+.gallery img{
+
+width:100%;
+
+border-radius:15px;
+
+transition:0.5s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.08);
+
+}
+
+/* cursor sparkle */
+
+.sparkle{
+
+position:fixed;
+
+width:6px;
+height:6px;
+
+background:white;
+
+border-radius:50%;
+
+pointer-events:none;
+
+animation:spark 1s linear forwards;
+
+}
+
+@keyframes spark{
+
+to{
+
+transform:translateY(-25px);
+opacity:0;
+
+}
+
+}
+
+footer{
+
+text-align:center;
+padding:40px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="#about">About</a>
+<a href="#education">Education</a>
+<a href="#experience">Experience</a>
+<a href="#skills">Skills</a>
+<a href="#gallery">Gallery</a>
+
+</nav>
+
+<div class="hero">
+
+<img src="avatar.jpg" class="avatar">
+
+<h1>Hoàng Bích Ngọc</h1>
+
+<p>Gia Sư Tiếng Trung Online</p>
+
+<p>
+📧 hoangbngoc1406@gmail.com  
+📞 0814919688  
+📍 Đại học Ngoại thương
+</p>
+
+</div>
+
+<section id="education">
+
+<h2>🎓 Học Vấn</h2>
+
+<div class="card">
+
+<b>THPT chuyên Nguyễn Tất Thành</b>
+
+<p>Chuyên tiếng Trung (2021–2024)</p>
+
+<ul>
+
+<li>Top 1 lớp trong 3 năm</li>
+<li>6 kỳ nhận học bổng</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<b>Đại học Ngoại thương</b>
+
+<p>Kế toán Kiểm toán ACCA (2024 – hiện tại)</p>
+
+</div>
+
+</section>
+
+<section id="experience">
+
+<h2>💼 Kinh nghiệm</h2>
+
+<div class="card">
+
+<b>Đội tuyển HSG Quốc Gia Yên Bái</b>
+
+<p>Trợ giảng (8/2024 – 9/2024)</p>
+
+<ul>
+
+<li>Hỗ trợ giảng dạy</li>
+<li>Soạn giáo trình</li>
+<li>Chấm bài</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<b>Gia sư tiếng Trung Online</b>
+
+<p>9/2024 – nay</p>
+
+<ul>
+
+<li>Dạy theo giáo trình HSK</li>
+<li>Luyện đề HSK & HSKK</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2>🌿 Kỹ năng</h2>
+
+<div class="skill">
+
+<p>Tin học văn phòng</p>
+
+<div class="bar">
+
+<div class="progress" data-width="85%"></div>
+
+</div>
+
+</div>
+
+<div class="skill">
+
+<p>Tiếng Trung</p>
+
+<div class="bar">
+
+<div class="progress" data-width="90%"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2>🌸 Gallery</h2>
+
+<div class="gallery">
+
+<img src="study.jpg">
+<img src="hobby.jpg">
+<img src="workspace.jpg">
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Hoàng Bích Ngọc
+
+</footer>
+
+<script>
+
+/* sparkle cursor */
+
+document.addEventListener("mousemove",function(e){
+
+let s=document.createElement("div")
+
+s.className="sparkle"
+
+s.style.left=e.clientX+"px"
+s.style.top=e.clientY+"px"
+
+document.body.appendChild(s)
+
+setTimeout(()=>{
+
+s.remove()
+
+},800)
+
+})
+
+/* scroll animation */
+
+let sections=document.querySelectorAll("section")
+
+window.addEventListener("scroll",()=>{
+
+sections.forEach(sec=>{
+
+let top=window.scrollY
+let offset=sec.offsetTop-400
+
+if(top>offset){
+
+sec.classList.add("show")
+
+}
+
+})
+
+})
+
+/* skills animation */
+
+let bars=document.querySelectorAll(".progress")
+
+window.addEventListener("scroll",()=>{
+
+bars.forEach(bar=>{
+
+let offset=bar.parentElement.parentElement.offsetTop-500
+
+if(window.scrollY>offset){
+
+bar.style.width=bar.dataset.width
+
+}
+
+})
+
+})
+
+</script>
+
+</body>
+
+</html>
