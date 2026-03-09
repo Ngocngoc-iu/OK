@@ -1,11 +1,11 @@
-```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Portfolio - Tuyết Anh</title>
+<title>Portfolio Tuyết Anh</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -15,7 +15,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Poppins,sans-serif;
 scroll-behavior:smooth;
 }
 
@@ -24,16 +24,14 @@ color:#333;
 overflow-x:hidden;
 }
 
-/* gradient animated background */
+/* background gradient */
 
 body::before{
 content:"";
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
-background:linear-gradient(-45deg,#b7f7c1,#ffd1e8,#d0ffe0,#ffc0e3);
+background:linear-gradient(-45deg,#c8f7d3,#ffd6ec,#d7ffe5,#ffc6e6);
 background-size:400% 400%;
 animation:bgmove 12s ease infinite;
 z-index:-2;
@@ -45,41 +43,38 @@ z-index:-2;
 100%{background-position:0% 50%}
 }
 
-/* floating sakura petals */
+/* sakura falling */
 
 .petal{
 position:fixed;
 top:-50px;
-width:15px;
-height:15px;
+width:14px;
+height:14px;
 background:pink;
 border-radius:50% 50% 50% 0;
-opacity:0.7;
 transform:rotate(45deg);
+opacity:.7;
 animation:fall linear infinite;
 z-index:-1;
 }
 
 @keyframes fall{
-0%{
-transform:translateY(-50px) rotate(0deg);
-}
-100%{
-transform:translateY(110vh) rotate(360deg);
-}
+0%{transform:translateY(-50px) rotate(0deg)}
+100%{transform:translateY(110vh) rotate(360deg)}
 }
 
 /* navbar */
 
 nav{
 position:fixed;
+top:0;
 width:100%;
-background:rgba(255,255,255,0.4);
+background:rgba(255,255,255,.5);
 backdrop-filter:blur(10px);
 display:flex;
 justify-content:center;
 gap:30px;
-padding:15px;
+padding:12px;
 z-index:10;
 }
 
@@ -89,64 +84,87 @@ color:#333;
 font-weight:500;
 }
 
-/* sections */
+/* section spacing */
 
 section{
-padding:70px 10%;
+padding:50px 10%;
 }
 
-/* card glassmorphism */
+/* glass card */
 
 .card{
-background:rgba(255,255,255,0.45);
+background:rgba(255,255,255,.45);
 backdrop-filter:blur(15px);
 border-radius:20px;
 padding:25px;
-margin-bottom:25px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
+box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.card p{
-line-height:1.6;
-margin-top:8px;
-}
+/* layout alternating */
 
-/* flip card */
-
-.flip-card{
-perspective:1000px;
-margin-bottom:25px;
-}
-
-.flip-inner{
-position:relative;
-width:100%;
-height:180px;
-transition:transform 0.8s;
-transform-style:preserve-3d;
-}
-
-.flip-card:hover .flip-inner{
-transform:rotateY(180deg);
-}
-
-.flip-front,
-.flip-back{
-position:absolute;
-width:100%;
-height:100%;
-backface-visibility:hidden;
-background:rgba(255,255,255,0.45);
-backdrop-filter:blur(15px);
-border-radius:20px;
+.flex{
 display:flex;
-flex-direction:column;
 align-items:center;
-justify-content:center;
+gap:40px;
+flex-wrap:wrap;
 }
 
-.flip-back{
-transform:rotateY(180deg);
+.reverse{
+flex-direction:row-reverse;
+}
+
+.text{
+flex:1;
+}
+
+.image{
+flex:1;
+text-align:center;
+}
+
+.image img{
+width:70%;
+border-radius:16px;
+}
+
+/* avatar */
+
+.profile{
+display:flex;
+align-items:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.avatar-wrap{
+position:relative;
+width:140px;
+height:140px;
+}
+
+.avatar{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+z-index:2;
+position:relative;
+}
+
+.sakura-ring{
+position:absolute;
+width:180px;
+height:180px;
+border-radius:50%;
+border:3px dashed pink;
+top:-20px;
+left:-20px;
+animation:spin 18s linear infinite;
+}
+
+@keyframes spin{
+from{transform:rotate(0)}
+to{transform:rotate(360deg)}
 }
 
 /* timeline */
@@ -157,25 +175,25 @@ padding-left:20px;
 }
 
 .timeline-item{
-margin-bottom:25px;
+margin-bottom:20px;
 position:relative;
 }
 
 .timeline-item::before{
 content:"";
-width:12px;
-height:12px;
+width:10px;
+height:10px;
 background:#ff9ecf;
 border-radius:50%;
 position:absolute;
-left:-27px;
+left:-26px;
 top:6px;
 }
 
 /* skills */
 
 .skill{
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 .progress{
@@ -209,11 +227,10 @@ position:fixed;
 width:20px;
 height:20px;
 border-radius:50%;
-background:rgba(255,255,255,0.8);
-pointer-events:none;
+background:white;
 mix-blend-mode:difference;
+pointer-events:none;
 transform:translate(-50%,-50%);
-transition:transform 0.1s linear;
 z-index:999;
 }
 
@@ -237,11 +254,23 @@ z-index:999;
 
 <h2>🌸 About Me</h2>
 
-<div class="card">
+<div class="card profile">
 
-<p class="typing"></p>
+<div class="avatar-wrap">
+<img src="avatar.jpg" class="avatar">
+<div class="sakura-ring"></div>
+</div>
 
-<p>Mình thích học ngôn ngữ và giỏi nhất là tính tò mò, ham học hỏi và luôn cố gắng hoàn thiện bản thân.</p>
+<div class="text">
+
+<p><b>Gia Sư Tiếng Trung Online</b></p>
+
+<p>
+Mình thích học ngôn ngữ và giỏi nhất là tính tò mò,
+ham học hỏi và luôn cố gắng hoàn thiện bản thân.
+</p>
+
+</div>
 
 </div>
 
@@ -251,23 +280,24 @@ z-index:999;
 
 <h2>🎓 Education</h2>
 
-<div class="flip-card">
-<div class="flip-inner">
+<div class="flex">
 
-<div class="flip-front">
-<b>Đại học Ngoại thương</b>
-<p>Kế toán Kiểm toán ACCA</p>
-</div>
+<div class="text card">
 
-<div class="flip-back">
-<p>2024 – hiện tại</p>
-<p>Yêu thích học ngoại ngữ và nghiên cứu</p>
-</div>
+<p><b>Đại học Ngoại thương</b></p>
+<p>Kế toán Kiểm toán ACCA (2024 – nay)</p>
+
+<br>
+
+<p><b>THPT Chuyên Nguyễn Tất Thành</b></p>
 
 </div>
+
+<div class="image">
+<img src="ftu.jpg">
 </div>
 
-<img src="study.jpg" style="width:100%;border-radius:15px">
+</div>
 
 </section>
 
@@ -275,21 +305,36 @@ z-index:999;
 
 <h2>💼 Experience</h2>
 
+<div class="flex reverse">
+
+<div class="text card">
+
 <div class="timeline">
 
 <div class="timeline-item">
-<b>2024 - nay</b>
-<p>Gia sư tiếng Trung Online</p>
+<b>2023</b>
+<p>Phiên dịch viên du lịch cho Hồ Nam – Trung Quốc</p>
 </div>
 
 <div class="timeline-item">
 <b>2024</b>
-<p>Trợ giảng đội tuyển HSG Quốc Gia</p>
+<p>Gia sư tiếng Trung Online</p>
+</div>
+
+<div class="timeline-item">
+<b>2025</b>
+<p>Đại sứ thương hiệu Weglow</p>
 </div>
 
 </div>
 
-<img src="workspace.jpg" style="width:100%;border-radius:15px;margin-top:20px">
+</div>
+
+<div class="image">
+<img src="Iu.png">
+</div>
+
+</div>
 
 </section>
 
@@ -297,36 +342,22 @@ z-index:999;
 
 <h2>🌿 Skills</h2>
 
+<div class="card">
+
 <div class="skill">
-<p>Chinese</p>
+Chinese
 <div class="progress"><div style="width:90%"></div></div>
 </div>
 
 <div class="skill">
-<p>English</p>
+English
 <div class="progress"><div style="width:80%"></div></div>
 </div>
 
 <div class="skill">
-<p>Teaching</p>
+Teaching
 <div class="progress"><div style="width:85%"></div></div>
 </div>
-
-</section>
-
-<section id="achievement">
-
-<h2>🏆 Thành tích</h2>
-
-<div class="card">
-
-<ul>
-
-<li>🏆 Giải Nhất Học sinh giỏi tỉnh môn Tiếng Trung</li>
-<li>🎓 HSK 5 & HSKK cao cấp</li>
-<li>🔬 Giải Khuyến Khích cuộc thi Sinh viên NCKH cấp khoa</li>
-
-</ul>
 
 </div>
 
@@ -334,13 +365,21 @@ z-index:999;
 
 <section id="hobby">
 
-<h2>🎨 Sở thích</h2>
+<h2>🎨 Hobby</h2>
 
-<div class="card">
+<div class="flex">
 
-<p>Ngoài việc học tập, mình thích đọc sách và khám phá ngôn ngữ mới.</p>
+<div class="text card">
 
-<img src="hobby.jpg" style="width:100%;border-radius:15px;margin-top:15px">
+<p>
+Mình thích đọc sách, học thư pháp và tìm hiểu văn hoá Trung Hoa.
+</p>
+
+</div>
+
+<div class="image">
+<img src="thu.jpg">
+</div>
 
 </div>
 
@@ -362,21 +401,7 @@ z-index:999;
 
 <script>
 
-/* typing effect */
-
-const text="Gia Sư Tiếng Trung Online"
-let i=0
-
-function typing(){
-if(i<text.length){
-document.querySelector(".typing").innerHTML+=text.charAt(i)
-i++
-setTimeout(typing,70)
-}
-}
-typing()
-
-/* cursor glow */
+/* cursor */
 
 const cursor=document.querySelector(".cursor")
 
@@ -393,10 +418,7 @@ const petal=document.createElement("div")
 petal.classList.add("petal")
 
 petal.style.left=Math.random()*100+"vw"
-
 petal.style.animationDuration=5+Math.random()*5+"s"
-
-petal.style.opacity=Math.random()
 
 document.body.appendChild(petal)
 
